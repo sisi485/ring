@@ -27,9 +27,13 @@ async function offOn() {
 async function ringDingDong() {
 
     console.log('its donging..');
+
+    const lights = await api.getLights();
+
     api.setGroup({on: false});
 
     await sleep(AWAITTIME);
+
     api.setGroup({
         on: true,
         sat: 255,
