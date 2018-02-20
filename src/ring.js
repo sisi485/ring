@@ -1,6 +1,7 @@
 const api = require('./api/HueApi');
 
 const AWAITTIME = 600;
+const AWAITTIMELONG = 2*AWAITTIME;
 
 function sleep(time) {
     return new Promise(function (resolve) {
@@ -15,7 +16,7 @@ async function offOn(lights) {
     });
 
 
-    await sleep(AWAITTIME);
+    await sleep(AWAITTIMELONG);
 
     api.setGroup({
         bri: 255
