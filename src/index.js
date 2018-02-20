@@ -40,5 +40,5 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
 
         isRinging = false;
 
-    }, 60000)
+    }, 5000)
 });
