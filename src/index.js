@@ -44,6 +44,7 @@ async function offOn(lights) {
 
 async function ringDingDong() {
 
+    console.log('its donging..');
     if(isRinging)
         return;
 
@@ -79,6 +80,8 @@ async function ringDingDong() {
     api.toggleAllLightState(lights);
 
     isRinging = false;
+    console.log('its not longer donging..');
+
 }
 
 console.log('Read 0: ' + wpi.digitalRead(0));
