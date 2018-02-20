@@ -1,10 +1,7 @@
-const api = require('./api/HueApi');
-//const wpi = require('wiring-pi');
 const wpi = require('wiringpi-node');
 const { spawn } = require('child_process');
 
 let isRinging = false;
-const AWAITTIME = 600;
 
 wpi.setup('wpi');
 wpi.pinMode(0, wpi.INPUT);
@@ -22,17 +19,17 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
 
     console.log('its ringing..');
 
-    const ls = spawn('node', ['./src/ring.js', '']);
+    const ring = spawn('node', ['./src/ring.js', '']);
 
-    ls.stdout.on('data', (data) => {
+    ring.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
     });
 
-    ls.stderr.on('data', (data) => {
+    ring.stderr.on('data', (data) => {
         console.log(`stderr: ${data}`);
     });
 
-    ls.on('close', (code) => {
+    ring.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
     });
 
