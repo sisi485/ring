@@ -9,6 +9,8 @@ const AWAITTIME = 600;
 wpi.setup('wpi');
 wpi.pinMode(0, wpi.INPUT);
 
+console.log('Pin 0, input');
+
 // setInterval(function() {
 //     console.log(wpi.digitalRead(0));
 // }, 100);
@@ -78,6 +80,8 @@ async function ringDingDong() {
 
     isRinging = false;
 }
+
+console.log('Warte..');
 
 wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
 
