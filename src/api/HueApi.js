@@ -27,12 +27,15 @@ class HueApi {
     }
 
     static getLights() {
+        console.log(rootUrl + '=rootUrl');
         return fetch (rootUrl + "/lights")
             .then(function (resp) {
+                console.log(resp.status+ '=status');
                 return resp.json();
             })
             .then(function (data) {
                 delete data["1"];
+                console.log(data + '=data');
                 return data;
             });
     }
