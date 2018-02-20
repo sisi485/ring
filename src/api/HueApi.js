@@ -73,6 +73,16 @@ class HueApi {
                 await this.toggleLightState(id, lights[id].state)
         }
     }
+
+    static setGroup(state) {
+        return fetch(rootUrl + "/groups/1/action", {
+            method:"PUT",
+            body:JSON.stringify(state)
+        }).then(function (resp) {
+            return resp.json();
+        });
+    }
+
 }
 
 

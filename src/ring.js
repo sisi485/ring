@@ -10,19 +10,15 @@ function sleep(time) {
 
 async function offOn(lights) {
 
-    api.toggleAllLightState(lights, {
-        sat: 255,
-        hue: 2500,
-        bri: 0
+    api.setGroup({
+        on: false
     });
+
 
     await sleep(AWAITTIME);
 
-    api.toggleAllLightState(lights, {
-        on: true,
-        sat: 255,
-        hue: 2500,
-        bri: 255
+    api.setGroup({
+        on: true
     });
 }
 
