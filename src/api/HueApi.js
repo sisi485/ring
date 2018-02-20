@@ -1,9 +1,10 @@
 const fetch = require('node-fetch');
 
-const rootUrl = "`";
+const rootUrl = "http://192.168.178.22/api/p2Hk18EfsISvatK3lrxF13j3rYnCoOF2XfRMwPFG";
+
 class HueApi {
 
-    //static rootUrl = "http://192.168.178.22/api/p2Hk18EfsISvatK3lrxF13j3rYnCoOF2XfRMwPFG";
+//    static rootUrl = "http://192.168.178.22/api/p2Hk18EfsISvatK3lrxF13j3rYnCoOF2XfRMwPFG";
 
     static toggleLight(id, state) {
 
