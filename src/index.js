@@ -45,10 +45,7 @@ async function offOn(lights) {
 async function ringDingDong() {
 
     console.log('its donging..');
-    if(isRinging)
-        return;
 
-    isRinging = true;
 
     console.log('its donging..2');
     const lights = await api.getLights();
@@ -86,13 +83,17 @@ async function ringDingDong() {
     console.log('its donging..5');
     isRinging = false;
     console.log('its not longer donging..');
-
 }
 
 console.log('Read 0: ' + wpi.digitalRead(0));
 console.log('Warte..');
 
 wpi.wiringPiISR(0, wpi.INT_EDGE_BOTH, function () {
+
+    if(isRinging)
+        return;
+
+    isRinging = true;
 
     console.log('its ringing..');
 
