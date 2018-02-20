@@ -6,3 +6,5 @@ async function test() {
 
     console.log(lights);
 }
+
+test();
