@@ -11,6 +11,8 @@ wpi.pinMode(0, wpi.INPUT);
 
 console.log('Pin 0, input');
 
+ringDingDong();
+
 // setInterval(function() {
 //     console.log(wpi.digitalRead(0));
 // }, 100);
