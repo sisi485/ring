@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const rootUrl = "http://192.168.178.22:80/api/p2Hk18EfsISvatK3lrxF13j3rYnCoOF2XfRMwPFG";
+const rootUrl = "`";
 class HueApi {
 
     //static rootUrl = "http://192.168.178.22/api/p2Hk18EfsISvatK3lrxF13j3rYnCoOF2XfRMwPFG";
@@ -37,7 +37,7 @@ class HueApi {
                 delete data["1"];
                 console.log(data + '=data');
                 return data;
-            });
+            }).catch(console.log.bind(console));
     }
 
     static setScene(id) {
