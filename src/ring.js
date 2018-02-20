@@ -9,7 +9,7 @@ function sleep(time) {
     })
 }
 
-async function offOn(lights) {
+async function offOn() {
 
     api.setGroup({
         bri: 0
@@ -27,15 +27,10 @@ async function offOn(lights) {
 async function ringDingDong() {
 
     console.log('its donging..');
-    const lights = await api.getLights();
-    for(const key in lights) {
-        if (lights[key].state.on) {
-            api.toggleLight(key, false);
-        }
-    }
+    api.setGroup({on: false});
 
     await sleep(AWAITTIME);
-    api.toggleAllLightState(lights, {
+    api.setGroup({
         on: true,
         sat: 255,
         hue: 2500,
@@ -43,13 +38,13 @@ async function ringDingDong() {
     });
 
     await sleep(AWAITTIME);
-    await offOn(lights);
+    await offOn();
 
     await sleep(AWAITTIME);
-    await offOn(lights);
+    await offOn();
 
-    await sleep(AWAITTIME);
-    api.toggleAllLights(lights, false);
+    await sleep(AWAITTIMELONG);
+    api.setGroup({on: false});
 
     await sleep(AWAITTIMELONG);
     api.toggleAllLightState(lights);
