@@ -51,7 +51,7 @@ async function ringDingDong() {
     await sleep(AWAITTIME);
     api.toggleAllLights(lights, false);
 
-    await sleep(AWAITTIME);
+    await sleep(AWAITTIMELONG);
     api.toggleAllLightState(lights);
 
     console.log('its not longer donging..');
