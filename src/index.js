@@ -84,7 +84,7 @@ async function ringDingDong() {
 console.log('Read 0: ' + wpi.digitalRead(0));
 console.log('Warte..');
 
-wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
+wpi.wiringPiISR(0, wpi.INT_EDGE_BOTH, function () {
 
     console.log('its ringing..');
 
