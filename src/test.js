@@ -1,3 +1,8 @@
 var hue = require('./api/HueApi');
 
-hue.getLights();
+async function test() {
+
+    const lights = await hue.getLights();
+
+    console.log(lights);
+}
