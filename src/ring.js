@@ -11,14 +11,14 @@ function sleep(time) {
 async function offOn(lights) {
 
     api.setGroup({
-        on: false
+        bri: 0
     });
 
 
     await sleep(AWAITTIME);
 
     api.setGroup({
-        on: true
+        bri: 255
     });
 }
 
