@@ -1,7 +1,7 @@
 const api = require('./api/HueApi');
 
-const AWAITTIME = 600;
-const AWAITTIMELONG = 2*AWAITTIME;
+const AWAITTIME = 1200;
+const AWAITTIMELONG = AWAITTIME;
 
 function sleep(time) {
     return new Promise(function (resolve) {
