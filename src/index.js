@@ -1,5 +1,6 @@
 const api = require('./api/HueApi');
-const wpi = require('wiring-pi');
+//const wpi = require('wiring-pi');
+const wpi = require('wiringpi-node');
 
 let isRinging = false;
 const AWAITTIMELONG = 600;
@@ -80,6 +81,8 @@ async function ringDingDong() {
 
 wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
 
+    console.log('its ringing..');
+
     ringDingDong();
-    
+
 });
