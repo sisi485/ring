@@ -27,7 +27,7 @@ class HueApi {
         });
     }
 
-    static getLights() {
+    static async getLights() {
         console.log(rootUrl + '=rootUrl');
         return fetch (rootUrl + "/lights")
             .then(function (resp) {
