@@ -52,6 +52,7 @@ async function ringDingDong() {
 
     console.log('its donging..2');
     const lights = await api.getLights();
+    console.log('its donging..2.2');
 
     for(const key in lights) {
         if (lights[key].state.on) {
