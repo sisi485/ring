@@ -1,8 +1,3 @@
-var wpi = require('wiring-pi');
+var hue = require('./api/HueApi');
 
-wpi.setup('wpi');
-wpi.pinMode(0, wpi.INPUT);
-
-setInterval(function() {
-    console.log(wpi.digitalRead(0));
-}, 100);
+hue.getLights();
