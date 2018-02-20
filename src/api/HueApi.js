@@ -83,6 +83,27 @@ class HueApi {
         });
     }
 
+    static createScene(name, lights) {
+        return fetch(rootUrl + "/scenes/", {
+            method:"POST",
+            body: JSON.stringify({
+                name: name,
+                lights: lights,
+                recycle: true
+            })
+        }).then(function (resp) {
+            return resp.json();
+        });
+    }
+
+    static deleteScene(id) {
+        return fetch(rootUrl + "/scenes/" + id, {
+            method:"DELETE",
+        }).then(function (resp) {
+            return resp.json();
+        });
+    }
+
 }
 
 

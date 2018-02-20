@@ -15,7 +15,6 @@ async function offOn() {
         bri: 0
     });
 
-
     await sleep(AWAITTIMELONG);
 
     api.setGroup({
@@ -27,17 +26,17 @@ async function offOn() {
 async function ringDingDong() {
 
     console.log('its donging..');
-
     const lights = await api.getLights();
+    const scene = await api.createScene('test', Object.keys(lights));
+    let sat     = 255 * Math.random();
+    let color   = 64000 * Math.random();
 
-    api.setGroup({on: false});
-
-    await sleep(AWAITTIME);
+    await sleep(100);
 
     api.setGroup({
         on: true,
-        sat: 255,
-        hue: 2500,
+        sat: parseInt(sat),
+        hue: parseInt(color),
         bri: 255
     });
 
@@ -48,10 +47,10 @@ async function ringDingDong() {
     await offOn();
 
     await sleep(AWAITTIMELONG);
-    api.setGroup({on: false});
 
-    await sleep(AWAITTIMELONG);
-    api.toggleAllLightState(lights);
+    await api.setGroup({scene: scene[0].success.id});
+
+    api.deleteScene(scene[0].success.id);
 
     console.log('its not longer donging..');
 }
