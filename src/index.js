@@ -2,6 +2,8 @@ const wpi = require('wiringpi-node');
 const { spawn } = require('child_process');
 
 let isRinging = false;
+let count = 0;
+let resetTimeOut = null;
 
 wpi.setup('wpi');
 wpi.pinMode(0, wpi.INPUT);
@@ -18,6 +20,19 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
     isRinging = true;
 
     console.log('its ringing..');
+
+    count++;
+
+    if (count < 5) {
+        if (!resetTimeOut)
+            return;
+        resetTimeOut = setTimeout(function () {
+            count = 0;
+
+        }, 1000);
+        return;
+    }
+
 
     const ring = spawn('node', ['./src/ring.js', '']);
 
