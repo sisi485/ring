@@ -17,13 +17,10 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
     if(isRinging)
         return;
 
-    isRinging = true;
-
-    console.log('its ringing..');
-
     count++;
 
     if (count < 2) {
+
         if (!resetTimeOut)
             return;
         resetTimeOut = setTimeout(function () {
@@ -33,6 +30,9 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
         return;
     }
 
+    isRinging = true;
+
+    console.log('its ringing..');
 
     const ring = spawn('node', ['./src/ring.js', '']);
 
