@@ -23,7 +23,7 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
 
     count++;
 
-    if (count < 5) {
+    if (count < 2) {
         if (!resetTimeOut)
             return;
         resetTimeOut = setTimeout(function () {
