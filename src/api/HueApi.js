@@ -76,16 +76,12 @@ class HueApi {
 
     static setGroup(state) {
 
-        let resp = fetch(rootUrl + "/groups/1/action", {
+        return fetch(rootUrl + "/groups/1/action", {
             method:"PUT",
             body:JSON.stringify(state)
         }).then(function (resp) {
             return resp.json();
         });
-
-        console.log(rep);
-
-        return null;
     }
 
     static createScene(name, lights) {
