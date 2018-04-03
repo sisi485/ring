@@ -14,6 +14,8 @@ console.log('Warte..');
 
 wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
 
+    console.log("isRinging:" + isRinging + " count=" + count);
+
     if(isRinging)
         return;
 
