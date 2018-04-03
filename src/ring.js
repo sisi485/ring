@@ -1,7 +1,7 @@
 const api = require('./api/HueApi');
 
-const AWAITTIME = 500;
-const TRANSITIONTIME = AWAITTIME / 1000 * 0.1;
+const AWAITTIME = 800;
+const TRANSITIONTIME = AWAITTIME / 1000 / 0.1;
 
 
 function sleep(time) {
@@ -31,7 +31,6 @@ async function ringDingDong() {
         console.log('its donging..');
         const lights = await api.getLights();
         const scene = await api.createScene('tmp-ring', Object.keys(lights));
-        let sat     = 255 * Math.random();
         let color   = 65535 * Math.random();
 
         await sleep(100);
@@ -46,14 +45,11 @@ async function ringDingDong() {
 
         await api.setGroup({
             on: true,
-            sat: parseInt(sat),
+            sat: 255,
             hue: parseInt(color),
             bri: 255,
             transitiontime: TRANSITIONTIME
         });
-
-        await sleep(AWAITTIME);
-        await offOn();
 
         await sleep(AWAITTIME);
         await offOn();
