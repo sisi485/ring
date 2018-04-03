@@ -22,11 +22,11 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
     if (count < 2) {
 
         if (!resetTimeOut)
-            return;
-        resetTimeOut = setTimeout(function () {
-            count = 0;
+            resetTimeOut = setTimeout(function () {
+                count = 0;
+                resetTimeOut = null;
+            }, 100);
 
-        }, 100);
         return;
     }
 
