@@ -42,7 +42,7 @@ async function ringDingDong() {
             transitiontime: TRANSITIONTIME
         });
 
-        await sleep(AWAITTIME;
+        await sleep(AWAITTIME);
 
         await api.setGroup({
             on: true,
