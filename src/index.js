@@ -26,7 +26,7 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
         resetTimeOut = setTimeout(function () {
             count = 0;
 
-        }, 1000);
+        }, 100);
         return;
     }
 
@@ -45,12 +45,8 @@ wpi.wiringPiISR(0, wpi.INT_EDGE_RISING, function () {
     });
 
     ring.on('close', (code) => {
-        console.log(`child process exited with code ${code}`);
-    });
-
-    setTimeout(function () {
 
         isRinging = false;
-
-    }, 5000)
+        console.log(`child process exited with code ${code}`);
+    });
 });
