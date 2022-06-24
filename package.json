@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.7",
     "wiringpi-node": "^2.4.4",
     "onoff": "4.1.3"
   }
